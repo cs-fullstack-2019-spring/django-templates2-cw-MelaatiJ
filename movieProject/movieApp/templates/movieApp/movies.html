@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movies</title>
+</head>
+<body>
+{% block title %}
+<h1>My Movies Page</h1>
+{% endblock %}
+<h2> <!-- first block names subtitle -->
+    {% block subtitle %}
+    {% endblock subtitle %}
+
+</h2>
+{% block content %}
+<table> <!--my table headers -->
+    <tr>
+        <th>Movie Title</th>
+        <th>Movie Details</th>
+        <th>Movie Synopsis</th>
+    </tr>
+    {% for movie in movies %}
+    <tr>
+        <td>
+            {{movie.movie_title}}
+        </td>
+        <td> <!--add the nickname to access the page -->
+            <a href="{% url 'details' %}">Movie Details</a>
+        </td>
+        <td>
+            <a href="{% url 'synopsis' %}">Movies synopsis</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+{% endblock content %}
+
+</body>
+</html>
